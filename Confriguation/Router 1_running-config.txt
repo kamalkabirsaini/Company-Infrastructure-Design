@@ -1,0 +1,81 @@
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname IT
+!
+!
+!
+enable password cisco
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 10.0.0.1 255.0.0.0
+ duplex auto
+ speed auto
+!
+interface Serial0/0
+ ip address 192.168.1.1 255.255.255.0
+ clock rate 64000
+!
+router rip
+ version 2
+ network 10.0.0.0
+ network 192.168.1.0
+ no auto-summary
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+>>>>>>>>>>>>>>>>>>>>      Ist Floor      <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>>>>>>>>>>>    IT Department    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<   
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ password cisco
+ login
+!
+!
+!
+end
+
